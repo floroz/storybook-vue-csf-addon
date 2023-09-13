@@ -1,7 +1,7 @@
 {
   "name": "storybook-vue-csf-addon",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.0",
   "packageManager": "pnpm@8.6.12",
   "description": "A Storybook Addon to write Storybook's stories using Vue SFC syntax and automatically convert them to Storybook CSF",
   "license": "MIT",

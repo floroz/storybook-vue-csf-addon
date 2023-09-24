@@ -1,5 +1,7 @@
 # `storybook-vue-csf-addon`
 
+This project started as a fork of [`storybook-vue-addon`](https://github.com/tobiasdiez/storybook-vue-addon)
+
 🚧 Work in progress 🚧
 
 ## Install

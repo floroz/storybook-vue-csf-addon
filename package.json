@@ -59,6 +59,11 @@
       "import": "./dist/types.js",
       "require": "./dist/types.cjs"
     },
+    "./story": {
+      "types": "./dist-vue/story.d.ts",
+      "import": "./dist-vue/story.js",
+      "require": "./dist-vue/story.cjs"
+    },
     "./*": "./*"
   },
   "main": "dist/index.cjs",
@@ -68,15 +73,17 @@
     "*": {
       "*": [
         "./dist/*",
+        "./dist-vue/*",
         "./*"
       ]
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "dist-vue"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && vite build",
     "dev": "tsup --watch src",
     "build:fix": "esno scripts/postbuild.ts",
     "lint": "eslint .",
@@ -84,14 +91,17 @@
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "storybook": "pnpm -C playground run storybook"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3",
     "@nuxt/schema": "^3",
+    "@storybook/vue3-vite": ">= 7",
     "esbuild": "*",
     "rollup": "^3",
     "vite": ">=3",
+    "vue": ">= 3",
     "webpack": "^4 || ^5"
   },
   "peerDependenciesMeta": {
@@ -115,15 +125,22 @@
     }
   },
   "dependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.3",
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
     "@nuxt/kit": "^3.6.5",
     "@nuxt/schema": "^3.6.5",
+    "@storybook/csf": "^0.1.1",
+    "@storybook/types": "^7.4.1",
+    "@storybook/vue3-vite": "^7.4.1",
     "@types/node": "^20.5.2",
+    "@vitejs/plugin-vue": "^4.2.3",
     "bumpp": "^9.2.0",
     "chalk": "^5.3.0",
+    "consola": "^3.2.3",
     "eslint": "^8.47.0",
     "esno": "^0.17.0",
     "fast-glob": "^3.3.1",
@@ -133,7 +150,9 @@
     "tsup": "^7.2.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3",
     "vitest": "^0.34.2",
+    "vue": "^3.3.4",
     "webpack": "^5.88.2"
   }
 }
